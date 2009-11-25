@@ -31,12 +31,12 @@ $(document).ready(function() {
             ];
                 
     palettes[2] = [
-              ["dfc3d4","e4c7e4","ddcce9","d6cae7","c7c7df","d2d8e9","c7d8d8","c3d4c3","ced4be","e4e4c7","e8d9cd","ebcdcd"],
-              ["d09cbc","dda5dd","cca9e2","c0a9e2","a2a2ce","a6b1d0","a7c9c9","a5c7a5","c7d2a5","dddda5","ddbca5","cd9a9a"],
-              ["e991c6","e28de2","be8bdf","b18ee4","9090d6","a2b3e7","8bbebe","8bbe8b","c0d18d","e4e48e","e7b390","e48e8e"],
+              ["fbdbee","ffdfff","f2dfff","ecdfff","dfdff9","e6ecff","dff2f2","dff2df","f2f9df","ffffdf","ffecdf","ffdfdf"],
+              ["ffbfe6","ffbfff","e6bfff","d9bfff","bfbff2","ccd9ff","bfe6e6","bfe6bf","e6f2bf","ffffbf","ffd9bf","ffbfbf"],
+              ["ff9fd9","ff9fff","d99fff","c69fff","9f9fec","b3c6ff","9fd9d9","9fd99f","d9ec9f","ffff9f","ffc69f","ff9f9f"],
               ["ff80cc","ff80ff","cc80ff","b380ff","8080e6","99b3ff","80cccc","80cc80","cce680","ffff80","ffb380","ff8080"],
               ["ff60bf","ff60ff","bf60ff","9f60ff","6060df","809fff","60bfbf","60bf60","bfdf60","ffff60","ff9f60","ff6060"],
-              ["ff40b3","ff40ff","b340ff","8c40ff","4040d9","668cff","40b3b3","40b340","83d940","ffff40","ff8c40","ff4040"],
+              ["ff40b3","ff40ff","b340ff","8c40ff","4040d9","668cff","40b3b3","40b340","b3d940","ffff40","ff8c40","ff4040"],
               ["ff20a6","ff20ff","a620ff","7920ff","2020d2","4d79ff","20a6a6","20a620","a6d220","ffff20","ff7920","ff2020"],
               ["ff0099","ff00ff","9900ff","6600ff","0000cc","3366ff","009999","009900","99cc00","ffff00","ff6600","ff0000"]
              ];
