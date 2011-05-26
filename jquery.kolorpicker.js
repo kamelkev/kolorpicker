@@ -79,9 +79,10 @@ $(document).ready(function() {
     var parent = $(input).parent();
 
     if ($(parent).find('div').filter('#kolorPicker').size() == 0) {
-      $(parent).append('<div id="kolorPicker"></div>');
 
-      $(parent).append('<div id="spacer"></div>');
+      $(input).wrap('<div class="kolorPicker-wrapper" style="z-index: 10;" />');
+
+      $('.kolorPicker-wrapper').append('<div id="kolorPicker"></div>');
 
       $('#kolorPicker').html(paletteHTML[selection]);
 
@@ -96,12 +97,15 @@ $(document).ready(function() {
 
     function cleanPicker() {
 
-      $('#kolorPicker').parent().removeAttr('style');
+      $('#kolorPicker').unwrap();
 
       $('#kolorPicker').parent().find('input').filter('.kolorPicker').css({'position' : '', 'z-index' : ''});
 
+      $('.kolorPicker-wrapper').remove();
       $('#kolorPicker').remove();
-      $('#spacer').remove();
+
+      $('.kolorPicker').parent().removeAttr('style');
+
       $('body').unbind('click.kp');
     }
 
