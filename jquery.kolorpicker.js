@@ -91,7 +91,7 @@ $(document).ready(function() {
       //reset the default auto value that IE sets (0) to 10 so that the picker works in IE
       $(parent).css('z-index','10');
 
-      $('.kolorPicker').focus();
+      $('.kolorPicker-wrapper .kolorPicker').focus();
     }
 
   };
