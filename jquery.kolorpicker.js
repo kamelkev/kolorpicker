@@ -75,7 +75,7 @@ $(document).ready(function() {
   }
 	
   function displayPicker(input) {
-
+      
     var parent = $(input).parent();
 
     if ($(parent).find('div').filter('#kolorPicker').size() == 0) {
@@ -90,14 +90,15 @@ $(document).ready(function() {
 
       //reset the default auto value that IE sets (0) to 10 so that the picker works in IE
       $(parent).css('z-index','10');
+
+      $('.kolorPicker').focus();
     }
+
   };
 
     function cleanPicker() {
-
+            
       $('#kolorPicker').unwrap();
-
-      $('#kolorPicker').parent().find('input').filter('.kolorPicker').css({'position' : '', 'z-index' : ''});
 
       $('.kolorPicker-wrapper').remove();
       $('#kolorPicker').remove();
@@ -109,7 +110,7 @@ $(document).ready(function() {
 
     $(".kolorPicker").live("click", function () { 
       $('body').bind('click.kp', function (ev) {
-        if (!($(ev.target).parents().is("#kolorPicker") || $(ev.target).is("#kolorPicker"))) {
+        if (!($(ev.target).parents().is(".kolorPicker-wrapper") || $(ev.target).is(".kolorPicker-wrapper"))) {
           cleanPicker();
         }
       });
