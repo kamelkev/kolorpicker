@@ -1,4 +1,4 @@
-A simple jquery component to display a color picker upon selection of an html input text field.
+Kolorpicker is a simple jQuery based component to display a color picker and palette selector upon selection of an html input text field.
 
 This particular color picker offers a tile based method of selecting colors, which separates it from the many photoshop-style color pickers currently available.
 How to Implement
@@ -11,8 +11,7 @@ How to Implement
 
 ![kolorpicker](http://www.mailermailer.com/images/labs/picker.jpg)
 
-[Demo here](http://www.mailermailer.com/labs/projects/jQuery-kolorPicker.rwp “Kolorpicker Demo”)
-
+[Demo here](http://www.mailermailer.com/labs/projects/jQuery-kolorPicker.rwp)
 
 ### Full Example ###
 
