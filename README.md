@@ -39,9 +39,9 @@ How to Implement
 
 ### Credits ###
 
-Kevin Kamel
-Chelsea Rio
-Evan Levent 
+- Kevin Kamel
+- Chelsea Rio
+- Evan Levent 
 
 ### Sponsorship ###
 
