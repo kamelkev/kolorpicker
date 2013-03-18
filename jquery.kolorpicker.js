@@ -80,6 +80,8 @@ $(document).ready(function() {
 
     if ($(parent).find('div').filter('#kolorPicker').size() == 0) {
 
+      $(input).css('z-index','100');
+
       $(input).wrap('<div class="kolorPicker-wrapper" style="z-index: 10;" />');
 
       $('.kolorPicker-wrapper').append('<div id="kolorPicker"></div>');
@@ -97,6 +99,8 @@ $(document).ready(function() {
   };
 
     function cleanPicker() {
+
+      $('.kolorpicker').removeAttr('style');
             
       $('#kolorPicker').unwrap();
 
