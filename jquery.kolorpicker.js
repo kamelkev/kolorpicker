@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     function cleanPicker() {
 
-      $('.kolorpicker').removeAttr('style');
+      $('.kolorPicker').removeAttr('style');
             
       $('#kolorPicker').unwrap();
 
