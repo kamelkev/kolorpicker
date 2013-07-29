@@ -99,8 +99,8 @@ $(document).ready(function() {
   };
 
     function cleanPicker() {
-
-      $('.kolorPicker').removeAttr('style');
+      
+      $('.kolorPicker').removeAttr('style'); 
             
       $('#kolorPicker').unwrap();
 
@@ -112,7 +112,7 @@ $(document).ready(function() {
       $('body').unbind('click.kp');
     }
 
-    $(".kolorPicker").live("click", function () { 
+    $(document).on("click", '.kolorPicker', function () { 
       $('body').bind('click.kp', function (ev) {
         if (!($(ev.target).parents().is(".kolorPicker-wrapper") || $(ev.target).is(".kolorPicker-wrapper"))) {
           cleanPicker();
@@ -122,7 +122,7 @@ $(document).ready(function() {
       displayPicker(this);
     });
 
-    $(".kolorPicker").live("keyup", function () {
+    $(document).on("keyup", '.kolorPicker', function () {
 
       if ($(this).val().charAt(0) != '#') {
         $(this).val('#' + $(this).val());
@@ -140,14 +140,14 @@ $(document).ready(function() {
       }
     });
 
-    $(".kolorPicker").live("keypress", function (e) {
+    $(document).on("keypress", '.kolorPicker', function (e) {
           
       preInput = $(this).val(); //catch this value for comparison in keyup
 
       return true;
     });
 
-    $('.tile').live("click", function(){	
+    $(document).on("click", '.tile', function(){	
 
       //get a handle to the div that wraps the input field
       var wrap_div = $(this).parent().parent().parent().parent().parent();
@@ -162,20 +162,19 @@ $(document).ready(function() {
       cleanPicker();
 
       $(input).val(color);
+
       $(input).change();
+      alert('it is now changed');
     });
 
-    $('ul.palette-select li').live("click", function(){
-
+    $(document).on("click", 'ul.palette-select li', function(){
       selection = $(this).attr('id'); //note which palette we selected
-     
+
       $('#kolorPicker').html(paletteHTML[selection]);
       $('li#' + selection).addClass('kolorpicker-palette-select');
-
     });
 
-    $('.x-close-box').live("click", function(){
-
+    $(document).on("click", '.x-close-box', function(){
      cleanPicker();
     });
 
