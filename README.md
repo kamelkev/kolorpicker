@@ -49,4 +49,4 @@ This code has been developed under sponsorship of MailerMailer LLC.
 
 ### Copyright ###
 
-© 2001-2012 MailerMailer LLC. All Rights Reserved 
+© 2001-2013 MailerMailer LLC. All Rights Reserved 
