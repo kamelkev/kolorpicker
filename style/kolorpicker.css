@@ -14,3 +14,5 @@ div.x-close-box { float: right !important; width: 15px; height: 12px; font-size:
 
 
 div#kolorPicker table td.tile {line-height:20px;}
+
+.kolorPickerUI { margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; opacity: 0.0; position: fixed; }
