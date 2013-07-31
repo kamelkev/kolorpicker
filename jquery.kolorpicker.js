@@ -1,11 +1,9 @@
 $(document).ready(function() {
-
   var preInput = ''; // for communicating between event handlers
   var paletteHTML = generateHTML(); //cached array of fully printed html for the palettes
   var selection = 1; //default palette selected
 
   function fetchPalette() {
-
     var palettes = new Array();
 
     palettes[0] = [
@@ -45,7 +43,6 @@ $(document).ready(function() {
   }
 
   function generateHTML() {
-
     var palettes = fetchPalette();
     var html = new Array();
 
@@ -75,7 +72,6 @@ $(document).ready(function() {
   }
 	
   function displayPicker(input) {
-      
     var parent = $(input).parent();
 
     if ($(parent).find('div').filter('#kolorPicker').size() == 0) {
@@ -94,87 +90,84 @@ $(document).ready(function() {
       $(parent).css('z-index','10');
 
       $('.kolorPicker-wrapper .kolorPicker').focus();
+	  
+      $('<div/>',{ class: 'kolorPickerUI' }).appendTo('body');
     }
+  }
 
-  };
-
-    function cleanPicker() {
-      
-      $('.kolorPicker').removeAttr('style'); 
+  function cleanPicker() {
+    $('.kolorPicker').removeAttr('style'); 
             
-      $('#kolorPicker').unwrap();
+    $('#kolorPicker').unwrap();
 
-      $('.kolorPicker-wrapper').remove();
-      $('#kolorPicker').remove();
+    $('.kolorPicker-wrapper').remove();
+    $('#kolorPicker').remove();
+    $('.kolorPickerUI').remove();
 
-      $('.kolorPicker').parent().removeAttr('style');
+    $('.kolorPicker').parent().removeAttr('style');
 
-      $('body').unbind('click.kp');
+    $('body').unbind('click.kp');
+  }
+
+  $(document).on("click", '.kolorPicker', function () { 
+    $('body').bind('click.kp', function (ev) {
+      if (!($(ev.target).parents().is(".kolorPicker-wrapper") || $(ev.target).is(".kolorPicker-wrapper"))) {
+        cleanPicker();
+      }
+    });
+
+    displayPicker(this);
+  });
+
+  $(document).on("keyup", '.kolorPicker', function () {
+    if ($(this).val().charAt(0) != '#') {
+      $(this).val('#' + $(this).val());
     }
 
-    $(document).on("click", '.kolorPicker', function () { 
-      $('body').bind('click.kp', function (ev) {
-        if (!($(ev.target).parents().is(".kolorPicker-wrapper") || $(ev.target).is(".kolorPicker-wrapper"))) {
-          cleanPicker();
-        }
-      });
+    var check = /^#[0-9A-Fa-f]*$/;
 
-      displayPicker(this);
-    });
+    if (!check.test($(this).val())) {
+      $(this).val(preInput); // if this value is invalid, restore it to what was valid
+    }
 
-    $(document).on("keyup", '.kolorPicker', function () {
+    // call the change event on $(this) if you may have an assumed valid hex code
+    if ( ($(this).val().length != preInput.length) && ($(this).val().length ==  7) ) {
+      $(this).change();
+    }
+  });
 
-      if ($(this).val().charAt(0) != '#') {
-        $(this).val('#' + $(this).val());
-      }
+  $(document).on("keypress", '.kolorPicker', function (e) {
+    preInput = $(this).val(); //catch this value for comparison in keyup
 
-      var check = /^#[0-9A-Fa-f]*$/;
+    return true;
+  });
 
-      if (!check.test($(this).val())) {
-        $(this).val(preInput); // if this value is invalid, restore it to what was valid
-      }
+  $(document).on("click", '.tile', function(){	
+    //get a handle to the div that wraps the input field
+    var wrap_div = $(this).parent().parent().parent().parent().parent();
 
-      // call the change event on $(this) if you may have an assumed valid hex code
-      if ( ($(this).val().length != preInput.length) && ($(this).val().length ==  7) ) {
-        $(this).change();
-      }
-    });
+    //get handle to input field to propogate update event
+    var input = $(wrap_div).find('input').filter('.kolorPicker');
 
-    $(document).on("keypress", '.kolorPicker', function (e) {
-          
-      preInput = $(this).val(); //catch this value for comparison in keyup
+    //grab from the tile's id
+    var color = '#' + $(this).attr('id');
 
-      return true;
-    });
+    //unhook ourselves from the page
+    cleanPicker();
 
-    $(document).on("click", '.tile', function(){	
+    $(input).val(color);
 
-      //get a handle to the div that wraps the input field
-      var wrap_div = $(this).parent().parent().parent().parent().parent();
+    $(input).change();
+  });
 
-      //get handle to input field to propogate update event
-      var input = $(wrap_div).find('input').filter('.kolorPicker');
+  $(document).on("click", 'ul.palette-select li', function(){
+    selection = $(this).attr('id'); //note which palette we selected
 
-      //grab from the tile's id
-      var color = '#' + $(this).attr('id');
+    $('#kolorPicker').html(paletteHTML[selection]);
+    $('li#' + selection).addClass('kolorpicker-palette-select');
+  });
 
-      //unhook ourselves from the page
-      cleanPicker();
-
-      $(input).val(color);
-
-      $(input).change();
-    });
-
-    $(document).on("click", 'ul.palette-select li', function(){
-      selection = $(this).attr('id'); //note which palette we selected
-
-      $('#kolorPicker').html(paletteHTML[selection]);
-      $('li#' + selection).addClass('kolorpicker-palette-select');
-    });
-
-    $(document).on("click", '.x-close-box', function(){
-     cleanPicker();
-    });
-
+  $(document).on("click", '.x-close-box', function(){
+    cleanPicker();
+  });
 });
