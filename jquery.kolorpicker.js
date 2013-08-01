@@ -164,7 +164,6 @@ $(document).ready(function() {
       $(input).val(color);
 
       $(input).change();
-      alert('it is now changed');
     });
 
     $(document).on("click", 'ul.palette-select li', function(){
