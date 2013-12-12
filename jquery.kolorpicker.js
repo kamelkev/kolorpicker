@@ -58,7 +58,7 @@ $(document).ready(function() {
              </ul>\
             </div>\
             <div class="x-close-box">X</div>\
-            <table id="palette-table" style="border-collapse: seperate;padding: 0px;margin:0; width: 290px;">';
+            <table id="palette-table" cellpadding="0" cellspacing="2" style="border-collapse: seperate; padding: 0px;margin:0; width: 290px;">';
 
       for (var row in palettes[palette]) {
         html[palette] += '<tr>';
