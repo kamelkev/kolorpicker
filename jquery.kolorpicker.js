@@ -90,8 +90,8 @@ $(document).ready(function() {
       $(parent).css('z-index','10');
 
       $('.kolorPicker-wrapper .kolorPicker').focus();
-	  
-      $('<div/>',{ class: 'kolorPickerUI' }).appendTo('body');
+
+      $('<div/>').attr('class','kolorPickerUI').appendTo('body');
     }
   }
 
