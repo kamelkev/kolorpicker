@@ -9,7 +9,7 @@ How to Implement
 
 ### Screenshot and Demo ###
 
-![kolorpicker](/images/labs/picker.jpg)
+![kolorpicker](http://kamelkev.github.io/images/labs/picker.jpg)
 
 [Demo here](http://kamelkev.github.io/kolorpicker/)
 
